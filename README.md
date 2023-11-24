@@ -13,7 +13,6 @@ and #users.
     
     #chargingStations collection with details about each charging station
     
-    {
   "_id": {
     "$oid": "6554a412b9063d51970f7639"
   },
@@ -35,7 +34,7 @@ and #users.
     }
   ],
   "rating": 4.7 (it comes from an average..)
-}
+
 
     #users collection with details about each user and its historical in the
     charging stations
