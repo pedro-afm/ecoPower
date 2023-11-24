@@ -12,28 +12,27 @@ Currently, the database is populated with two collections, #chargingStations
 and #users.
     
     #chargingStations collection with details about each charging station
-    
-  "_id": {
-    "$oid": "6554a412b9063d51970f7639"
-  },
-  "coord": {
-    "lat": 47.8215,
-    "lng": 13.025
-  },
-  "address": "Bessarabierstraße 59, 5020 Salzburg, Áustria",
-  "connectors": [
-    {
-      "connector": "CHAdeMo",
-      "quantity": 4,
-      "power": "DC from 50kW to 100kW"
+    "_id": {
+        "$oid": "6554a412b9063d51970f7639"
     },
-    {
-      "connector": "GB/T",
-      "quantity": 4,
-      "power": "AC up to 25kW"
-    }
-  ],
-  "rating": 4.7 (it comes from an average..)
+    "coord": {
+        "lat": 47.8215,
+        "lng": 13.025
+    },
+    "address": "Bessarabierstraße 59, 5020 Salzburg, Áustria",
+    "connectors": [
+        {
+        "connector": "CHAdeMo",
+        "quantity": 4,
+        "power": "DC from 50kW to 100kW"
+        },
+        {
+        "connector": "GB/T",
+        "quantity": 4,
+        "power": "AC up to 25kW"
+        }
+    ],
+    "rating": 4.7 (it comes from an average..)
 
 
     #users collection with details about each user and its historical in the
