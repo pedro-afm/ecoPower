@@ -1,0 +1,19 @@
+.rounded-button {
+    background-color: #4CAF50; /* Cor de fundo */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Sem decoração no texto */
+    display: inline-block; /* Tipo de display */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 4px 2px; /* Margem externa */
+    cursor: pointer; /* Tipo de cursor */
+    border-radius: 25px; /* Borda arredondada */
+    transition-duration: 0.4s; /* Duração da transição da cor */
+  }
+  
+  .rounded-button:hover {
+    background-color: #45a049; /* Cor de fundo quando o mouse está sobre */
+  }
+  
