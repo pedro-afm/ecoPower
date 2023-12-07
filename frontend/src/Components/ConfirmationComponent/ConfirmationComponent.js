@@ -19,7 +19,7 @@ const ConfirmationComponent = () => {
                     "code": code
                 }),
                 headers: {
-                    'Content-typr': 'application/json'
+                    'Content-type': 'application/json'
                 }
             })
             const data = await response.json()
