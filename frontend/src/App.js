@@ -5,7 +5,7 @@ import MyMapComponent from './Components/MyMapComponent/MyMapComponent';
 import RegisterComponent from './Components/RegisterComponent/RegisterComponent';
 import LoginComponent from './Components/LoginComponent/LoginComponent';
 import ConfirmationComponent from './Components/ConfirmationComponent/ConfirmationComponent';
-import  AuthProvider  from './TokenReducer/AuthProvider';
+import AuthProvider  from './TokenReducer/AuthProvider';
 import ProtectedRoute from './Router/guardRouter'; // Importe o componente ProtectedRoute aqui
 
 function App() {

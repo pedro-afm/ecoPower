@@ -30,7 +30,7 @@ const LoginComponent = ()=>{
             const data = await reply.json();
             console.log(data);
             if(data.statusCode===200) {
-                console.log("estou aqui")
+                console.log("eu aqui")
                 try {
                     const token = data.body.AuthenticationResult.IdToken
                     dispatch(setToken(token));
