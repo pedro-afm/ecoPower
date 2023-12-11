@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+input {
+    height: 45px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 200px;
+    outline: none;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.signcontainer,
+.confirmation
+{
+    width: 20%;    
+    min-width: 500px;
+}
+
+.inside {
+  display: flex;
+  flex-direction: row;
+  width: 100%;    
+  min-height: 100vh;
+}
+
+.signform,
+.confirmationform
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signBtn,
+.codeBtn {
+    background-color: blue;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.signOutBtn {
+    background-color: #c21010;
+    color: #fff;
+}
+
+.link {
+    cursor: pointer;
+    color: rgb(39, 147, 39);
+}
+
+.code {
+    width: 50%;
+    text-align: center;
+}
+.verifyform {
+    align-items: center;
+}
+
+.alert {
+    color: red;
+    margin: bottom 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .signcontainer,
+    .verify {
+        padding: 30px;
+    }
+}

@@ -1,26 +1,27 @@
 import './App.css';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Navbar from './Components/Navbar/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyMapComponent from './Components/MyMapComponent/MyMapComponent';
-import { createContext, StrictMode } from 'react';
 import RegisterComponent from './Components/RegisterComponent/RegisterComponent';
 import LoginComponent from './Components/LoginComponent/LoginComponent';
 import ConfirmationComponent from './Components/ConfirmationComponent/ConfirmationComponent';
-
-const router = createBrowserRouter([
-  { path: '/', element: <LoginComponent></LoginComponent>},
-  { path: '/registry', element: <RegisterComponent></RegisterComponent>},
-  { path: '/confirmation', element: <ConfirmationComponent></ConfirmationComponent>},
-  { path: '/', element: <MyMapComponent></MyMapComponent>}
-])
-
+import  AuthProvider  from './TokenReducer/AuthProvider';
+import ProtectedRoute from './Router/guardRouter'; // Importe o componente ProtectedRoute aqui
 
 function App() {
+  const token = localStorage.getItem("token");
+
   return (
-      <div className='container'>
-        <RouterProvider router={router}/>
-      </div>
+    <BrowserRouter>
+      <AuthProvider token={token}>
+        <Routes>
+          <Route path='/signup' element={<RegisterComponent />} />
+          <Route path='/confirmation' element={<ConfirmationComponent />} />
+          <Route path="/login" element={<LoginComponent />} />
+          <Route path="/user-area" element={<MyMapComponent />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
