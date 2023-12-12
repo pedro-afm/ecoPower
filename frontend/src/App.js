@@ -5,24 +5,28 @@ import MyMapComponent from './Components/MyMapComponent/MyMapComponent';
 import RegisterComponent from './Components/RegisterComponent/RegisterComponent';
 import LoginComponent from './Components/LoginComponent/LoginComponent';
 import ConfirmationComponent from './Components/ConfirmationComponent/ConfirmationComponent';
-import AuthProvider  from './TokenReducer/AuthProvider';
-import ProtectedRoute from './Router/guardRouter'; // Importe o componente ProtectedRoute aqui
+import PrivateRoute from './Router/PrivateRoute';
+import { Provider, useSelector } from 'react-redux';
+import store from './TokenReducer/store';
 
 function App() {
-  const token = localStorage.getItem("token");
+  const token = useSelector((state) => state.auth.token)
 
   return (
-    <BrowserRouter>
-      <AuthProvider token={token}>
-        <Routes>
-          <Route path='/signup' element={<RegisterComponent />} />
-          <Route path='/confirmation' element={<ConfirmationComponent />} />
-          <Route path="/login" element={<LoginComponent />} />
-          <Route path="/user-area" element={<MyMapComponent />} />
-        </Routes>
-      </AuthProvider>
-    </BrowserRouter>
-  );
+        <Provider store={store}>
+          <BrowserRouter>
+            <Routes>
+              <Route path='/signup' element={<RegisterComponent />} />
+              <Route path='/confirmation' element={<ConfirmationComponent />} />
+              <Route path="/login" element={<LoginComponent />} />
+              <Route
+                path="/user-area"
+                element={<MyMapComponent />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+  );  
 }
 
 export default App;

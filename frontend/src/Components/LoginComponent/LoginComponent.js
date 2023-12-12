@@ -1,14 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import '../CSS/sign.css';
-import { setToken } from '../../TokenReducer/tokenActions';
-import { useDispatch } from 'react-redux';
+import { setCredentials } from '../../TokenReducer/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const LoginComponent = ()=>{
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ message, setMessage ] = useState('');
     const navigate = useNavigate();
+    const token = useSelector((state) => state.token.token);
     const dispatch = useDispatch();
 
     const onSubmit = async (e)=>{
@@ -32,9 +33,8 @@ const LoginComponent = ()=>{
             if(data.statusCode===200) {
                 console.log("eu aqui")
                 try {
-                    const token = data.body.AuthenticationResult.IdToken
-                    dispatch(setToken(token));
-                    navigate('/user-area', { state: {token: token}});
+                    dispatch(setCredentials(data.body.AuthenticationResult.IdToken));
+                    navigate('/user-area');
                 } catch (e){
                     console.error("error: " + e);
                 }

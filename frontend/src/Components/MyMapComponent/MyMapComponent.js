@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './MyMapComponent.css';
 import { CCS1, CCS2, CHAdeMo, GBTAC, TIPO2, euro, energy2 } from '../../Images/exportImages';
 import { useChargingStations, useGeocoder, useUserData, useUserLocalConsumption } from '../../Hooks/indexHooks'
-import AuthProvider from '../../TokenReducer/AuthProvider';
+//import AuthProvider from '../../TokenReducer/AuthProvider';
 
 // The key to fetch the API of Google maps
 const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
@@ -51,7 +51,7 @@ const MyMapComponent = () => {
     };
 
     return (
-        <AuthProvider>
+      
             <Container fluid style={{ border: '0px'}}>
                 <Row style={{ height: '100%' }}>
                     <Col xs={12} lg={6}>
@@ -148,7 +148,6 @@ const MyMapComponent = () => {
                     </Col>
                 </Row>
             </Container>
-        </AuthProvider>
     );
 };
 
