@@ -6,10 +6,10 @@
     font-family: "Space Grotesk", sans-serif;
 }
 
-input {
+input.formInput {
     height: 45px;
     padding: 10px 15px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 button {

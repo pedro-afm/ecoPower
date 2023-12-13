@@ -40,13 +40,14 @@ const RegisterComponent = ()=>{
     }
 
     return (
-        <div class="container">
+        <div className="container">
             <div className="signcontainer">
                 <h2>Sign Up</h2>
                 <form className="signform" onSubmit={onSubmit}>
                     <input
                         placeholder="Username"
                         type="text"
+                        className="formInput"
                         id="username"
                         value={username}
                         required
@@ -55,6 +56,7 @@ const RegisterComponent = ()=>{
                     <input
                         placeholder="Password"
                         type="password"
+                        className="formInput"
                         id="password"
                         minLength={6}
                         value={password}
@@ -64,6 +66,7 @@ const RegisterComponent = ()=>{
                     <input
                         placeholder="Email"
                         type="email"
+                        className="formInput"
                         id="email"
                         value={email}
                         required
@@ -72,6 +75,7 @@ const RegisterComponent = ()=>{
                     <input
                         placeholder="Name"
                         type="text"
+                        className="formInput"
                         id="name"
                         value={name}
                         required
@@ -80,6 +84,7 @@ const RegisterComponent = ()=>{
                     <input
                         placeholder="Address"
                         type="text"
+                        className="formInput"
                         id="address"
                         value={address}
                         required

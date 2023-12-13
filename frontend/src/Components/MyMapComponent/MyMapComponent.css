@@ -9,18 +9,22 @@ body{
     font-size: 20px bold;
 }
 
+.infoMarker-div p{
+    overflow-wrap: break-word;
+}
+
 h1{
-    color: #cccccc;
+    color: #375f68;
     font-size: 30px bold;
     text-align: center;
     text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .div-box{
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+
     padding: 20px; 
     margin: 20px;
-    background-color: #375f68;
+
     
 }
 .div-box2{
@@ -28,6 +32,7 @@ h1{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
     padding: 20px; 
     background-color: #f0fdff;
+    color: #8f8f8f;
     display: flex;
     flex-direction: row;
     align-items: center; 
@@ -36,6 +41,7 @@ h1{
 
 .search-box {
     position: relative;
+    text-align: center;
 }
 
 .search-box input[type="text"] {
@@ -73,7 +79,17 @@ p.connectors{
     height: 100px; 
     background-color: transparent; 
     border: 1px solid #b6b6b6; 
+    color: #b6b6b6;
     display: flex; 
     align-items: center; 
     justify-content: center; 
 }
+
+@media (max-width: 768px) {
+    /* Estilos para telas menores (até 768px de largura) */
+    .div-box {
+      padding: 10px;
+      margin: 10px;
+    }
+  }
+  

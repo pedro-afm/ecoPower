@@ -65,6 +65,7 @@ const LoginComponent = ()=>{
                 <form className="signform" onSubmit={onSubmit}>
                     <input
                         placeholder="Username"
+                        className="formInput"
                         type="text"
                         id="username"
                         value={username}
@@ -73,6 +74,7 @@ const LoginComponent = ()=>{
                     />
                     <input
                         placeholder="Password"
+                        className="formInput"
                         type="password"
                         id="password"
                         minLength={6}

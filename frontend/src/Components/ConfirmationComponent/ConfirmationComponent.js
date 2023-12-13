@@ -39,6 +39,7 @@ const ConfirmationComponent = () => {
                     <input
                         placeholder="Code"
                         type="number"
+                        className="formInput"
                         id="code"
                         value={code}
                         required
