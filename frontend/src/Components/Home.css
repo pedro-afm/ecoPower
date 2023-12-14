@@ -1,0 +1,14 @@
+.image-container {
+    position: relative;
+    display: inline-block; /* Isso mantém o tamanho da div de acordo com a imagem */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo semi-transparente (aqui é preto com 50% de transparência) */
+    z-index: 1; /* Certifica-se de que a sobreposição esteja acima da imagem */
+}

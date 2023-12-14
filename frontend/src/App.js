@@ -6,6 +6,7 @@ import RegisterComponent from './Components/RegisterComponent/RegisterComponent'
 import LoginComponent from './Components/LoginComponent/LoginComponent';
 import ConfirmationComponent from './Components/ConfirmationComponent/ConfirmationComponent';
 import PrivateRoutes from './Router/PrivateRoute';
+import Home from './Components/Home'
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
               <Route path='/signup' element={<RegisterComponent />} />
               <Route path='/confirmation' element={<ConfirmationComponent />} />
               <Route path="/login" element={<LoginComponent />} />
+              <Route path='/' element={<Home />} />
               <Route element={<PrivateRoutes token={token}/>}>
                 <Route element={<MyMapComponent/>} path="/user-area"></Route>
               </Route>
