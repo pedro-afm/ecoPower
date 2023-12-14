@@ -18,6 +18,9 @@ export default function Navbar() {
                 <li>
                     {token ? '' : <Link to='/contact' className={linkClass}>Contact</Link>}
                 </li>
+                <li style={{marginLeft: 'auto'}}>
+                    {token ? <Link to='/my-area' className={linkClass}>My area</Link> : ''}
+                </li>
                 <li style={{ marginLeft: 'auto', textAlign: 'right', marginRight: '50px' }}>
                     {token ? <ButtonLogOut /> : <Link to='/login' className={linkClass}>SignIn</Link >}
                 </li>
