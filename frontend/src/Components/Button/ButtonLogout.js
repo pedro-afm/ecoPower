@@ -9,7 +9,7 @@ const ButtonLogOut = () => {
 
     const handleLogOut = () => {
         dispatch(logOut());
-        navigate('/login');
+        navigate('/');
     };
 
     return (

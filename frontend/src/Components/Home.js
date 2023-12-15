@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar/Navbar';
 import planoDeFundo from '../Images/planoDeFundo.png';
 import './Home.css'; // Estilo CSS personalizado para o componente Home

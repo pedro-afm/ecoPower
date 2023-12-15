@@ -24,7 +24,7 @@ const ConfirmationComponent = () => {
                 }
             })
             const data = await response.json()
-            if(data.statusCode === 200) navigate('/')
+            if(data.statusCode === 200) navigate('/login')
             else setMessage("Message: " +data.body.name)
         } catch (e) {
             setMessage("Message: "+ JSON.stringify(e))
@@ -32,7 +32,7 @@ const ConfirmationComponent = () => {
     }
 
     return (
-        <div class="container">
+        <div className="container">
             <div className="confirmation">
                 <h2>Confirmation</h2>
                 <form className="confirmationform" onSubmit={onSubmit}>

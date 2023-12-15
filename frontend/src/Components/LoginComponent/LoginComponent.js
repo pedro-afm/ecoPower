@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import '../CSS/sign.css';
 import { setCredentials } from '../../TokenReducer/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentToken } from '../../TokenReducer/authSlice';
+import { selectCurrentToken, selectCurrentUser } from '../../TokenReducer/authSlice';
 
 const LoginComponent = ()=>{
     const [ username, setUsername ] = useState('');
@@ -12,11 +12,12 @@ const LoginComponent = ()=>{
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const token = useSelector(selectCurrentToken);
+    const user = useSelector(selectCurrentUser);
 
     useEffect(() => {
         if (token) {
           console.log('Token armazenado:', token);
-          navigate('/user-area');
+          navigate('/map-area');
         } else {
           console.log('Token não encontrado no estado Redux');
         }
@@ -44,7 +45,16 @@ const LoginComponent = ()=>{
                 console.log("eu aqui")
                 try {
                     dispatch(setCredentials({token: data.body.AuthenticationResult.IdToken}));
-                    navigate('/user-area');
+                    const decodedToken = JSON.parse(atob((data.body.AuthenticationResult.IdToken).split('.')[1])); 
+                    
+                    const user = {
+                        address: decodeURIComponent(decodedToken.address.formatted),
+                        username: decodedToken['cognito:username'],
+                        email: decodedToken.email,
+                        name: decodedToken.name,
+
+                    }
+                    console.log(decodedToken)
                 } catch (e){
                     console.error("error: " + e);
                 }

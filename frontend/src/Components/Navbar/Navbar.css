@@ -9,16 +9,17 @@ li {
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border: 2px solid #007bff;
+  color: #131313;
   transition: background-color 0.3s ease;
   margin-right: 10px;
+  font-size: large;
+  font-weight: 500;
 }
 
 .loggedInLink:hover {
-  background-color: #0056b3; /* Cor de fundo alterada no hover */
-  border: 2px solid #0056b3; /* Cor da borda alterada no hover */
+  background-color: #383838; /* Cor de fundo alterada no hover */
+  border: 2px solid #ffffff; /* Cor da borda alterada no hover */
+  color: white;
 }
 
 /* Estilos para links quando o usuário está deslogado */

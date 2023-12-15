@@ -20,7 +20,7 @@ function App() {
               <Route path="/login" element={<LoginComponent />} />
               <Route path='/' element={<Home />} />
               <Route element={<PrivateRoutes token={token}/>}>
-                <Route element={<MyMapComponent/>} path="/user-area"></Route>
+                <Route element={<MyMapComponent/>} path="/map-area"></Route>
               </Route>
             </Routes>
           </Router>

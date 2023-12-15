@@ -31,9 +31,9 @@ const RegisterComponent = ()=>{
             }
             );
             const data = await reply.json();
-            console.log(data);
+            console.log(data.body);
             if(data.statusCode===200) navigate('/confirmation', {state:{username}});
-            else setMessage("Message:"+data.body.name);
+            else setMessage("Message: "+data.body);
         }catch(e){
             setMessage("Message :"+JSON.stringify(e));
         }
