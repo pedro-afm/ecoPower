@@ -44,7 +44,6 @@ const LoginComponent = ()=>{
             if(data.statusCode===200) {
                 console.log("eu aqui")
                 try {
-                    dispatch(setCredentials({token: data.body.AuthenticationResult.IdToken}));
                     const decodedToken = JSON.parse(atob((data.body.AuthenticationResult.IdToken).split('.')[1])); 
                     
                     const user = {
@@ -54,7 +53,7 @@ const LoginComponent = ()=>{
                         name: decodedToken.name,
 
                     }
-                    console.log(decodedToken)
+                    dispatch(setCredentials({token: data.body.AuthenticationResult.IdToken, user: user})); 
                 } catch (e){
                     console.error("error: " + e);
                 }
