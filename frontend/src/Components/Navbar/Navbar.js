@@ -21,7 +21,7 @@ export default function Navbar() {
                     {token ? '' : <Link to='/contact' className={linkClass}>Contact</Link>}
                 </li>
                 <li style={{ marginLeft: 'auto' }}>
-                    {token && pathName === '/' ? <Link to='/map-area' className={linkClass}>My area</Link> : ''}
+                    {token && pathName === '/' || pathName === '/user-details' ? <Link to='/map-area' className={linkClass}>My area</Link> : ''}
                 </li>
                 <li style={{ marginLeft: 'auto', textAlign: 'right' }}>
                     {token && pathName === '/map-area' ? <Link to='/user-details' className={linkClass}>User details</Link> : ''}

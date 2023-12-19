@@ -38,6 +38,7 @@ const MyMapComponent = () => {
     async function handleMarkerClick(marker) {
         setSelectedMarker(marker);
         calculateConsumption(marker);
+        console.log(userData);
     }
 
     // Handle the searching address when the customer clicks the button
