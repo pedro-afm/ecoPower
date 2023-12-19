@@ -1,10 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GoogleMap, Marker, useLoadScript, } from '@react-google-maps/api';
 import { Container, Row, Col } from 'react-bootstrap';
 import './MyMapComponent.css';
 import { CCS1, CCS2, CHAdeMo, GBTAC, TIPO2, euro, energy2 } from '../../Images/exportImages';
-import { useChargingStations, useGeocoder, useUserData, useUserLocalConsumption } from '../../Hooks/indexHooks'
+import { useChargingStations, useGeocoder, useUserData, useUserLocalConsumption, useUserMail } from '../../Hooks/indexHooks'
 import Navbar from '../Navbar/Navbar';
+import { setCredentials, selectCurrentToken } from '../../TokenReducer/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 //import AuthProvider from '../../TokenReducer/AuthProvider';
 
@@ -30,15 +32,16 @@ const MyMapComponent = () => {
     ];
     const mapRef = useRef(null);
     const allStations = useChargingStations();
-    const userData = useUserData();
+    const userMail = useUserMail();
+    const userData = useUserData(userMail);
     const { geocodeAddress, mapCenter, zoom } = useGeocoder(window.google);
     const { calculateConsumption, cost, energySpent } = useUserLocalConsumption(allStations, userData);
-
+   
+    
     // Handle marker click event and calls the another function to calculate user consumption
     async function handleMarkerClick(marker) {
         setSelectedMarker(marker);
         calculateConsumption(marker);
-        console.log(userData);
     }
 
     // Handle the searching address when the customer clicks the button
