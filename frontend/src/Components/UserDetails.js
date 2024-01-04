@@ -4,6 +4,7 @@ import Navbar from './Navbar/Navbar';
 import Chart from 'chart.js/auto';
 import { Container, Row, Col } from 'react-bootstrap'
 import useUserData from '../Hooks/useUserData';
+import { format } from 'date-fns';
 
 const UserDetails = () => {
   const [data, setData] = useState(null); // Initialize data as null
@@ -21,44 +22,67 @@ const UserDetails = () => {
       y: {
         title: {
           display: true,
-          text: 'Charging Price (EUR)',
+          text: 'Charging Price (EUR) / Energy Consumption (kWh)',
         },
       },
     },
   };
 
-
   useEffect(() => {
+    const userData = localStorage.getItem("userDetails")
+    const parsedData = JSON.parse(userData);
+    const chargingData = parsedData[0].chargers;
+    console.log(chargingData)
+    const dates = chargingData.map((entry) => entry.date);
+    const energies = chargingData.map((entry) => entry.energy);
+    const prices = chargingData.map((entry) => entry.price);
 
-    const chargingData = [
-      { date: '2023-01-01', price: 20 },
-      { date: '2023-01-02', price: 15 },
-      { date: '2023-01-03', price: 18 },
-      { date: '2023-01-04', price: 25 },
-      { date: '2023-01-05', price: 30 },
-    ];
-
+    // Criar o conjunto de dados para o gráfico
     const chartData = {
-      labels: chargingData.map((entry) => entry.date),
+      labels: dates.map((date) => format(new Date(date), 'MM-dd-yyyy')),
       datasets: [
         {
-          label: 'Charging Price (EUR)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: [ // Cores diferentes para o contorno de cada barra
-            'rgba(255, 0, 0, 1)', // Vermelho
-            'rgba(0, 255, 0, 1)', // Verde
-            'rgba(0, 0, 255, 1)', // Azul
-            'rgba(255, 255, 0, 1)', // Amarelo
-            'rgba(255, 0, 255, 1)', // Magenta
-          ],
-          borderWidth: 1,
-          data: chargingData.map((entry) => entry.price),
+          label: 'Price',
+          data: prices,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)', // Cor de fundo das barras
+          borderColor: 'rgba(75, 192, 192, 1)', // Cor da borda das barras
+          borderWidth: 1, // Largura da borda das barras
+        },
+        {
+          label: 'Energy Consumption',
+          data: energies,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
+          borderColor: 'rgba(255, 99, 132, 1)', // Cor da borda das barras
+          borderWidth: 1, // Largura da borda das barras
         },
       ],
     };
 
+    // Configurações do gráfico
+    const chartOptions = {
+      scales: {
+        x: {
+          type: 'time', // Configura o eixo X como um eixo de tempo
+          time: {
+            unit: 'month', // Define a unidade de tempo (pode ser ajustada de acordo com a granularidade dos seus dados)
+            tooltipFormat: 'll', // Formato da dica de ferramenta ao passar o mouse sobre as barras
+          },
+          title: {
+            display: true,
+            text: 'Data',
+          },
+        },
+        y: {
+          beginAtZero: true, // Comece o eixo Y a partir de zero
+          title: {
+            display: true,
+            text: 'Preço / Quantidade de Energia',
+          },
+        },
+      },
+    };
     setData(chartData);
-  }, []);
+  }, [])
 
   useEffect(() => {
     const storedData = localStorage.getItem('user');
@@ -79,7 +103,7 @@ const UserDetails = () => {
       <Navbar /> {/* Make sure Navbar is imported and working correctly */}
       <h1 style={{ marginTop: '20px' }}>Hello {dataFromLocalStorage}</h1>
       <Container>
-        <Bar data={data} options={chartOptions} style={{ marginTop: '-250px' }} />
+        <Bar data={data} options={chartOptions}/>
       </Container>
     </div>
   );

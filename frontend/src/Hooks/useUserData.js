@@ -23,7 +23,6 @@ const useUserData = (userMail) => {
         }
         const userInformation = await response.json();
         setUserData(userInformation);
-        
 
       } catch (error) {
         console.error("Error fetching user information:", error);
